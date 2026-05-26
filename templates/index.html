@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ name }}</h1>
+    <h2>Start your journey</h2>
+
+    {% for apart in apartments %}
+        <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+        <img src="{{ apart.image.url }}" class="img-fluid rounded-start" alt="{{ apart.name }}">
+        </div>
+        <div class="col-md-8">
+        <div class="card-body">
+            <h5 class="card-title">{{ apart.name }}</h5>
+            <p class="card-text">{{ apart.price}} грн</p>
+            <p class="card-text"><small class="text-body-secondary">
+                Категорія: {{ apart.category.name }} - Місткість: {{ apart.capacity }} особи</small></p>
+        </div>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+{% endblock %}
